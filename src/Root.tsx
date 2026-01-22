@@ -2,46 +2,25 @@ import "./index.css";
 import { Composition } from "remotion";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
-
-// Each <Composition> is an entry in the sidebar!
+import { VybeChangelog, TOTAL_DURATION } from "./VybeChangelog";
+import {
+  VybeChangelogMobile,
+  TOTAL_DURATION_MOBILE,
+} from "./VybeChangelog/mobile";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* Vybe Changelog - Desktop (1920x1080) */}
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render HelloWorld
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
+        id="VybeChangelogv110"
+        component={VybeChangelog}
+        durationInFrames={TOTAL_DURATION}
         fps={30}
         width={1920}
         height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        schema={myCompSchema}
-        defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
-        }}
       />
-
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
-      <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        schema={myCompSchema2}
-        defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
-        }}
-      />
+      {/* Vybe Changelog - Mobile (1080x1920) */}
     </>
   );
 };
