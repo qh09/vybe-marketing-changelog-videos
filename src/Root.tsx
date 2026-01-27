@@ -7,11 +7,21 @@ import {
   VybeChangelogMobile,
   TOTAL_DURATION_MOBILE,
 } from "./VybeChangelog/mobile";
+import { VybeChangelogV111, TOTAL_DURATION_V111 } from "./VybeChangelogV111";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      {/* Vybe Changelog - Desktop (1920x1080) */}
+      {/* Vybe Changelog v1.1.1 - Desktop (1920x1080) */}
+      <Composition
+        id="VybeChangelogv111"
+        component={VybeChangelogV111}
+        durationInFrames={TOTAL_DURATION_V111}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      {/* Vybe Changelog v1.1.0 - Desktop (1920x1080) */}
       <Composition
         id="VybeChangelogv110"
         component={VybeChangelog}
